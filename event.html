@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Mouse Events Demo</title>
+</head>
+<body>
+
+    <h2>JavaScript Mouse Events</h2>
+
+    <button
+        onmouseover="hoverMessage()" 
+        onmouseout="leaveMessage()"
+        onclick="clickMessage()">Click me</button>
+    <br><br>
+    <div id="result"></div>
+
+    <script>
+        function hoverMessage() {
+            document.getElementById("result").innerHTML = 
+                "<h3>Mouse is OVER the heading (onmouseover)</h3>";
+        }
+        function leaveMessage() {
+            document.getElementById("result").innerHTML = 
+                "<h3>Mouse LEFT the heading (onmouseout)</h3>";
+        }
+        function clickMessage() {
+            document.getElementById("result").innerHTML = 
+                "<h3>You CLICKED the heading (onclick)</h3>";
+        }
+    </script>
+
+</body>
+</html>

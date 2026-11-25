@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Mathematical Operations</title>
+</head>
+<body>
+<h2>Simple Calculator</h2>
+num1:<br>
+<input id = "num1">
+<br><br>
+num2:<br>
+<input id = "num2">
+<br><br>
+<button onclick = "simple_operation()">show result</button>
+<div id = "result"></div>
+<div id = "result1"></div>
+<div id = "result2"></div>
+<div id = "result3"></div>
+<script>
+function simple_operation(){
+let a = parseFloat(document.getElementById("num1").value);
+let b = parseFloat(document.getElementById("num2").value);
+let sum = a+b;
+let sub = a-b;
+let mul = a*b;
+let div = a/b;
+document.getElementById("result").innerHTML = "a+b = " + sum + ""
+document.getElementById("result1").innerHTML = "a-b = " + sub + ""
+document.getElementById("result2").innerHTML = "a*b = " + mul + ""
+document.getElementById("result3").innerHTML = "a/b = " + div + ""
+}
+</script>
+</body>
+</html>

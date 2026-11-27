@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form Validation</title>
+</head>
+<body>
+
+    <h2>User Registration Form</h2>
+
+    <!-- Error message display area -->
+    <div id="errorMessage"></div>
+    <br>
+
+    <!-- The Form -->
+    <form onsubmit="return validateForm(event)">
+
+        Username: <br>
+        <input type="text" id="uname">
+        <br><br>
+
+        Password: <br>
+        <input type="password" id="pass">
+        <br><br>
+
+        Retype Password: <br>
+        <input type="password" id="cpass">
+        <br><br>
+
+        <input type="submit" value="Register">
+
+    </form>
+
+    <script>
+        function validateForm(event) {
+            // Step 1: Read values from input fields
+            let username = document.getElementById("uname").value;
+            let password = document.getElementById("pass").value;
+            let confirmPassword = document.getElementById("cpass").value;
+
+            // Target div for displaying errors
+            let errorBox = document.getElementById("errorMessage");
+
+            // Rule 1: Check if Username is empty
+            if (username === "") {
+                errorBox.innerHTML = "<b>Error:</b> Username cannot be empty!";
+                return false; // Stop form submission
+            }
+
+            // Rule 2: Check password length (at least 6 characters)
+            if (password.length < 6) {
+                errorBox.innerHTML = "<b>Error:</b> Password must be at least 6 characters long!";
+                return false; // Stop form submission
+            }
+
+            // Rule 3: Check if both passwords match
+            if (password !== confirmPassword) {
+                errorBox.innerHTML = "<b>Error:</b> Passwords do not match!";
+                return false; // Stop form submission
+            }
+
+            // If all checks pass:
+            errorBox.innerHTML = "<b>Success:</b> Form validated successfully!";
+            event.preventDefault(); // Prevent actual form submission for demonstration
+            return true; // Allow form submission
+        }
+    </script>
+
+</body>
+</html>

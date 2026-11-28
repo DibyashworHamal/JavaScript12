@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mobile & Age Validation</title>
+</head>
+<body>
+
+    <h2>Verification Form</h2>
+
+    <div id="error"></div>
+    <br>
+
+    <form onsubmit="return validateData(event)">
+
+        Mobile Number (10 digits): <br>
+        <input type="text" id="mobile">
+        <br><br>
+
+        Age (18+): <br>
+        <input type="text" id="age">
+        <br><br>
+
+        <input type="submit" value="Verify">
+
+    </form>
+
+    <script>
+        function validateData(event) {
+            let phone = document.getElementById("mobile").value;
+            let age = parseInt(document.getElementById("age").value);
+            let err = document.getElementById("error");
+
+            // Check 1: Phone must be numbers only and exactly 10 digits
+            if (isNaN(phone) || phone.length !== 10) {
+                err.innerHTML = "<b>Error:</b> Please enter a valid 10-digit mobile number!";
+                return false;
+            }
+
+            // Check 2: Age must be a number and at least 18
+            if (isNaN(age) || age < 18) {
+                err.innerHTML = "<b>Error:</b> You must be at least 18 years old!";
+                return false;
+            }
+
+            err.innerHTML = "<b>Success:</b> Details are valid!";
+            event.preventDefault(); // Prevent actual form submission for demonstration
+            return true;
+        }
+    </script>
+
+</body>
+</html>
